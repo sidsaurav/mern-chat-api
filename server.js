@@ -13,7 +13,7 @@ const path = require('path')
 dotenv.config()
 app.use(express.json())
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3000
 
 connectDB()
 app.use('/api/user', userRouter)

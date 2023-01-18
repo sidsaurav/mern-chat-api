@@ -1,6 +1,6 @@
 const express = require('express')
 const dotenv = require('dotenv')
-const chats = require('../backend/data/data')
+// const chats = require('../backend/data/data')
 const connectDB = require('./config/db')
 const app = express()
 const userRouter = require('./routers/userRouter')

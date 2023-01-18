@@ -1,6 +1,6 @@
 const express = require('express')
 const dotenv = require('dotenv')
-// const chats = require('../backend/data/data')
+const cors = require('cors')
 const connectDB = require('./config/db')
 const app = express()
 const userRouter = require('./routers/userRouter')
@@ -17,12 +17,13 @@ const PORT = process.env.PORT || 3000
 
 connectDB()
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// });
+app.use(cors())
 
 app.use('/api/user', userRouter)
 app.use('/api/chat', chatRouter)
